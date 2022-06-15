@@ -13,7 +13,7 @@ const cloudinary = require('cloudinary');
 // const upload = multer({storage});
 require('dotenv').config();
 
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 //mongodb connection
 
@@ -186,6 +186,6 @@ app.get('/logout', (req, res) => {
 app.get('*', (req, res) => {
     res.send("We can't find the page you are looking for!");
 })
-app.listen(1010, () => {
+app.listen(PORT, () => {
     console.log("listening on port 1010");
 })
