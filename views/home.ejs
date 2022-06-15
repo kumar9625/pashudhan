@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id"
+        content="396918042087-9ejg6k7n4i7etgc50jv1lap0oergma7a.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <link rel="icon"
+        href="https://res.cloudinary.com/difuk2mjh/image/upload/v1647709442/pashudhan/android-chrome-512x512_divue0.png">
+    <link rel="stylesheet" type="text/css" href="/assets/stylesheet.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+    </style>
+    <title>Pashudhan | Home</title>
+    <script>window.onload = function () {
+            render();
+        };
+        function render() {
+            window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
+            recaptchaVerifier.render();
+        }</script>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="brand-title">
+            <img src="https://res.cloudinary.com/difuk2mjh/image/upload/v1647700808/pashudhan/PASHUDHAN_2_m3mvwg.png">
+        </div>
+
+        <a href="#" class="toggle-button">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </a>
+        <a href="/home" class="title">पशुधन</a>
+        <div class="navbar-links">
+            <ul>
+                <li><a href="/home">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="marq">
+        <marquee>पशु खरीदें, बेचे, भारत का सबसे भरोसेमंद पशु मेला |</marquee>
+    </div>
+    <div class="container" id="container">
+        <div class="form-container sign-up-container">
+            <form action="/register" method="post">
+                <h1>Create Account</h1>
+
+                <span>or use your email for registration</span>
+                <input type="tel" placeholder="Phone Number" id="phone" name="phone" >
+                <input type="password" placeholder="Password" id="password" name="password" />
+                <button>Sign Up</button>
+            </form>
+        </div>
+        <div class="form-container sign-in-container">
+            <form action="/login" method="post">
+                <h1>Sign in</h1>
+
+
+
+
+                <span>or use your account</span>
+                <!-- <input type="email" placeholder="Email" id="email" name="email" /> -->
+                <input type="text" name="number" id="number"  placeholder="Mobile Number">
+                <div id="recaptcha-container" style="margin-top:10px"></div>
+                <div id="otp">
+                    <button type="button" onclick="phoneAuth();">Send OTP</button>
+                    <input type="text" name="verificationCode" id="verificationCode" placeholder="OTP" />
+
+                    <button type="button" onclick="codeverify()">Verify OTP</button><br>
+                    <a id="passlog" href="#" onclick="showpwd();">Login Using Password</a>
+                </div>
+
+                <div id="pwd"></div>
+
+
+
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </form>
+        </div>
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h1>Welcome Back!</h1>
+                    <p>To keep connected with us please login with your personal info</p>
+                    <button class="ghost" id="signIn">Sign In</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h1>प्रिय पालनहार</h1>
+                    <p>\tअपना व्यक्तिगत विवरण दर्ज करें और हमारे साथ यात्रा शुरू करें</p>
+                    <button class="ghost" id="signUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+<script src="/assets/script.js"></script>
+<script>
+    function onSignIn(googleUser) {
+        var id_token = googleUser.getAuthResponse().id_token;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/glogin');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = function () {
+            console.log('Signed in as: ' + xhr.responseText);
+            if (xhr.responseText == 'Success') {
+                signOut();
+                location.assign('/dashboard');
+            }
+        };
+        xhr.send(JSON.stringify({
+            token: id_token
+        }));
+    }
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+<script>
+    
+    const firebaseConfig = {
+        apiKey: "AIzaSyDGsG-b90r1H2LvEZu9H8xP-ewrTZayoQQ",
+        authDomain: "pashudhan-68d33.firebaseapp.com",
+        projectId: "pashudhan-68d33",
+        storageBucket: "pashudhan-68d33.appspot.com",
+        messagingSenderId: "1032391358831",
+        appId: "1:1032391358831:web:70323afc656e4939e4109a",
+        measurementId: "G-C1W64GZ9F9"
+    };
+    firebase.initializeApp(firebaseConfig);
+    function showpwd() {
+
+        var x = document.getElementById("otp")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        document.getElementById("pwd").innerHTML = '<input type="password" placeholder="Password" id="password" name="password" > <a href="#" onclick = "showotp();">Login using OTP</a><br> <a href="#">Forgot your password ?</a> <button type="submit">Sign In</button>';
+
+    }
+    function showotp() {
+        var x = document.getElementById("pwd")
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+        showpwd();
+    }
+</script>
+<script src="../assets/NumberAuthentication.js" type="text/javascript"></script>
+
+</html>

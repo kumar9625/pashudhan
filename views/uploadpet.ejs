@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/uploadpet.css">
+    <script src="https://kit.fontawesome.com/dea07b7281.js" crossorigin="anonymous"></script>
+    <title>Pashudhan| Sell Your Pet</title>
+</head>
+
+<body>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <div class="signup-container">
+            <div class="left-container">
+                <h1 class="title">
+                    पशुधन
+                </h1>
+                <div class="puppy">
+                    <img
+                        src="https://res.cloudinary.com/difuk2mjh/image/upload/v1647700808/pashudhan/PASHUDHAN_2_m3mvwg.png">
+                </div>
+            </div>
+            <div class="right-container">
+                <header>
+                    <h1>पशु परिचय दें</h1>
+                    <div class="set">
+                        <label>पशु चुनें</label>
+                        <select onchange="showfield(this.options[this.selectedIndex].value)">
+                            <option value="buffalo">भैंस</option>
+                            <option value="mbuffalo">भैंसा</option>
+                            <option value="cow">गाय</option>
+                            <option value="ox">बैल</option>
+                            <option value="dog">कुत्ता</option>
+                        </select>
+
+                        <div class="pets-photo">
+                            <button type="button" onclick="upload_file()">
+                                <i class="fa-solid fa-images"></i>
+                                <input type="file" name="petimage" id="pets-upload" style="display: none;">
+                            </button>
+                            <label for="pets-upload">फोटो अपलोड करो</label>
+                        </div>
+                    </div>
+                    <div class="set">
+                        <div class="pets-breed">
+                            <label for="pets-breed">नस्ल</label>
+                            <input id="pets-breed"  type="text"></input>
+                        </div>
+                        <div class="pets-birthday">
+                            <label for="pets-birthday">अनुमानित आयु</label>
+                            <input id="pets-birthday" type="number">वर्ष</input>
+                        </div>
+                    </div>
+
+                    <div class="set">
+                        <div class="pets-breed">
+                            <label for="pets-breed">ब्यांत </label>
+                            <input id="pets-breed"  type="number" max="6"></input>
+                        </div>
+                        <div class="pets-baby" id="div1">
+
+                        </div>
+
+                    </div>
+
+                    <div class="set">
+
+                        <div class="pets-spayed-neutered">
+                            <label for="pet-spayed">दूध क्षमता</label>
+                            <div class="radio-container">
+                                <input id="pet-spayed" name="spayed-neutered" type="radio" value="2-4"></input>
+                                <label for="pet-spayed">2-4</label>
+                                <input id="pet-neutered" name="spayed-neutered" type="radio" value="4-6"></input>
+                                <label for="pet-neutered">4-6</label>
+                                <input id="6-8" name="spayed-neutered" type="radio" value="6-8"></input>
+                                <label for="6-8">6-8</label>
+                                <input id="8-10" name="spayed-neutered" type="radio" value="8-10"></input>
+                                <label for="8-10">8-10</label>
+                                <input id="10-12" name="spayed-neutered" type="radio" value="10-12"></input>
+                                <label for="10-12">10-12</label>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="set">
+                        <div class="pets-birthday">
+                            <label for="pets-birthday">कीमत</label>
+                            <input id="pets-birthday" type="number" max="20000000">रुपये</input>
+                        </div>
+                    </div>
+
+                </header>
+                <footer>
+                    <div class="set">
+                        <button id="next" type="submit">Next</button>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </form>
+
+</body>
+<script>
+    function showfield(name) {
+        if (name == 'cow') document.getElementById('div1').innerHTML = '<label for="pets-baby">बछड़ा / बछिया </label> <input type="text" id = "pets-baby" name="pets-baby" />';
+        else if (name == 'buffalo') document.getElementById('div1').innerHTML = '<label for="pets-baby">कटिया / कटड़ा </label> <input type="text" id = "pets-baby" name="pets-baby" />';
+
+
+
+        else document.getElementById('div1').innerHTML = '';
+
+
+    }
+    function upload_file() {
+        document.getElementById('pets-upload').click()
+    }
+</script>
+
+</html>

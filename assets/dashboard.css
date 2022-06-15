@@ -1,0 +1,92 @@
+#map{
+    align-items: center;
+    width: 800px; 
+    margin-left: 20%;
+    height: 500px;
+
+    text-align: center;
+}
+.navbar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(250, 248, 248);
+    color: rgb(25, 236, 88);
+}
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.brand-title img {
+    height: 100px;
+    width: 100px;
+}
+
+.navbar .title {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 4em;
+    position: fixed;
+    left: 50%;
+    color: rgb(25, 236, 88);
+    top: 50%;
+    text-align: center;
+    height: 65px;
+    display: flex;
+    text-decoration: none;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    align-self: center;
+    vertical-align: middle;
+    align-content: center;
+}
+
+.navbar-links {
+    font-size: 1.5em;
+    height: 100%;
+}
+
+.navbar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    display: block;
+    text-decoration: none;
+    color: rgb(14, 233, 69);
+    padding: 1rem;
+}
+
+.navbar-links li:hover {
+    background-color: #555;
+}
+
+#uploadbtn{
+    margin: 10px 0 0 40%;
+
+}
+
+#uploadbtn button{
+    align-items: center;
+    text-decoration: none;
+    background-color: rgb(14, 233, 69);
+    border-radius: 20px;
+    
+}
+
+#uploadbtn a{
+    align-items: center;
+    font-size: large;
+    text-decoration: none;
+    background-color: rgb(14, 233, 69);
+}
+.info{
+    text-align: center;
+}
