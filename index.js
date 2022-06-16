@@ -187,5 +187,5 @@ app.get('*', (req, res) => {
     res.send("We can't find the page you are looking for!");
 })
 app.listen(PORT, () => {
-    console.log("listening on port 1010");
+    console.log(`listening on port ${PORT}`);
 })
