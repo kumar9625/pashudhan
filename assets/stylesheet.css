@@ -139,6 +139,7 @@ form {
     flex-direction: column;
     padding: 0 50px;
     height: 100%;
+    width: fit-content;
     text-align: center;
 }
 
@@ -315,7 +316,32 @@ footer a {
     text-decoration: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
+
+    
+form {
+    
+    width: 100%;
+   
+}
+
+    .overlay {
+        display: none;
+    }
+    .overlay-container{
+        display: none;
+    }
+    .container {
+        margin: 0 auto;
+        align-items: center;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        width: 768px;
+        min-height: 480px;
+    }
     .navbar {
         flex-direction: column;
         align-items: flex-start;
