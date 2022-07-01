@@ -9,7 +9,7 @@ ________________________________________________________________________________
 - 📫 How to find me:
     -  [LinkedIn](https://www.linkedin.com/in/rohitverma9625/)
     - [KAGGLE](https://www.kaggle.com/rohitverma9625)
-- 📜- [Resume.pdf](https://github.com/kumar9625/pashudhan/files/9028145/Resume.pdf)
+- 📜 [My Resume](https://github.com/kumar9625/pashudhan/files/9028145/Resume.pdf)
 <!---
 kumar9625/kumar9625 is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 You can click the Preview link to take a look at your changes.
